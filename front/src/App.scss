@@ -1,13 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-body{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
   font-family: "Poppins", "sans-serif";
   overflow: hidden;
-  background: #FFFFFF;
+  background: #ffffff;
 }
-.App{
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 90px;
   padding-right: 90px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

@@ -1,0 +1,77 @@
+.content_picture {
+  padding-bottom: 35px;
+  position: relative;
+  display: inline-block;
+  img {
+    width: 382.868px;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    &:hover {
+      cursor: pointer;
+      filter: brightness(45%);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 35px);
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 18px;
+    padding-top: 18px;
+    padding-bottom: 35px;
+
+    .button_hover {
+      width: 65px;
+      height: 25px;
+      flex-shrink: 0;
+      font-family: Poppins;
+      background-color: transparent;
+      border-radius: 38px;
+      border: 1px solid #eb5757;
+      color: #eb5757;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-transform: lowercase;
+      margin-left: 260px;
+      &:hover {
+        cursor: pointer;
+        color: #e02b2b;
+        border: 1px solid #e02b2b;
+      }
+    }
+    .text_hover {
+      color: #fff;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 270px;
+      margin-left: -65px;
+    }
+  }
+  &:hover {
+    .overlay {
+      opacity: 1;
+      height: calc(100% - 35px);
+    }
+    img {
+      filter: brightness(70%);
+    }
+  }
+}

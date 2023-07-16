@@ -1,11 +1,14 @@
 import "./App.scss";
+import { ListPictures } from "./components/list_pictures/ListPictures";
+import { NavBar } from "./components/navbar/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <div>NavBar</div>
-      <main>Content</main>
-      <footer>Kuollivo64</footer>
+      <NavBar />
+      <main>
+        <ListPictures />
+      </main>
     </div>
   );
 }
