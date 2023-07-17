@@ -3,8 +3,7 @@ import "./ListPictures.scss";
 import { CardPicture } from "../card_picture/CardPicture";
 import { useUnsplashs } from "../../hooks/useUnsplashs";
 
-export const ListPictures = () => {
-  const { isLoading, unsplash } = useUnsplashs();
+export const ListPictures = ({ unsplash, isLoading }) => {
   return (
     <div className="flex_pictures">
       {isLoading ? (

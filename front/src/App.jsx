@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <main>
+      {/* <main>
         <ListPictures />
-      </main>
+      </main> */}
       <Toaster />
     </div>
   );

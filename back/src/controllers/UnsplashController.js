@@ -1,6 +1,7 @@
 
 const { response } = require("express");
-const { Unsplash } = require('./../models/UnsplashModel')
+const { Unsplash } = require('./../models/UnsplashModel');
+const { Op } = require("sequelize");
 
 //GET CONTROLLER Unsplash    
 const getUnsplash = async (req, res = response) => {
@@ -21,11 +22,34 @@ const getUnsplash = async (req, res = response) => {
         });
     }
 }
+
+const searchUnsplash = async (req, res = response) => {
+    const { title } = req.query;
+    try {
+        const filters = {};
+        if (title) {
+            filters.title = { [Op.iLike]: `%${title}%` };
+        }
+        const unsplash = await Unsplash.findAll({ where: filters })
+        if (!unsplash) {
+            return res.status(400).json({
+                ok: false,
+                msg: "No found unsplash",
+            });
+        }
+        res.status(201).json({ unsplash });
+    } catch (error) {
+        res.status(500).json({
+            ok: false,
+            msg: "Error exception call the administration!!!",
+        });
+    }
+}
+
 //GET ID CONTROLLER Unsplash
 const getUnsplashId = async (req, res = response) => {
     const cod_unsplash = req.params.id
     try {
-
         const unsplash = await Unsplash.findOne({ where: { cod_unsplash: cod_unsplash } })
         if (!unsplash) {
             return res.status(400).json({
@@ -130,4 +154,5 @@ module.exports = {
     postUnsplash,
     putUnsplash,
     deleteUnsplash,
+    searchUnsplash
 }
