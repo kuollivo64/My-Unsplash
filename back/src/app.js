@@ -1,11 +1,11 @@
 
 const express = require("express");
 
-const port = process.env.PORT || 3001;
-
 const { corsNode } = require('./middlewars/cors')
 
 require("dotenv").config();
+
+const port = process.env.PORT || 4005;
 
 const { dbConnection } = require("./config/config");
 

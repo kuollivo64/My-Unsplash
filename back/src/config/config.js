@@ -14,7 +14,7 @@ require('dotenv').config();
 //     }
 // );
 const sequelize = new Sequelize(process.env.POSTGRES_URL, {
-    dialect: 'postgres',
+    dialect: process.env.DATABASE_DIALECT,
     logging: false,
     dialectOptions: {
         ssl: {
