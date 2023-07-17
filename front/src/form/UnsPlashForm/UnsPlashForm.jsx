@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getUnsplash, postUnsplash } from "../../helpers/UnsPlashRest";
 import toast from "react-hot-toast";
 import "./UnsPlashForm.scss";
-import { postUnsplash } from "../../helpers/UnsPlashRest";
-import { useUnsplashs } from "../../hooks/useUnsplashs";
 
-export const UnsPlashForm = ({ onClose }) => {
-  const { unsplash } = useUnsplashs();
+export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
   const [formData, setformData] = useState({
     title: "",
     imageURL: "",
@@ -22,7 +20,7 @@ export const UnsPlashForm = ({ onClose }) => {
     e.preventDefault();
     const data = {
       ...formData,
-      cod_unsplash: (unsplash.length + 2).toString(),
+      cod_unsplash: unsplash.length + 2,
       active: true,
       isactiveunsplash: true,
     };
@@ -33,6 +31,9 @@ export const UnsPlashForm = ({ onClose }) => {
       .catch((error) => {
         toast.error(error.message);
       });
+
+    const newData = await getUnsplash();
+    updateList(newData);
 
     setformData({
       title: "",

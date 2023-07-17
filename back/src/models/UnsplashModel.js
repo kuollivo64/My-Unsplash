@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const Unsplash = sequelize.define('unsplash', {
     cod_unsplash: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         primaryKey: true,
     },
 
@@ -13,16 +13,9 @@ const Unsplash = sequelize.define('unsplash', {
         type: DataTypes.STRING,
     },
 
-
     imageURL: {
         type: DataTypes.STRING,
     },
-
-
-    active: {
-        type: DataTypes.BOOLEAN,
-    },
-
 
     isactiveunsplash: {
         type: DataTypes.BOOLEAN,

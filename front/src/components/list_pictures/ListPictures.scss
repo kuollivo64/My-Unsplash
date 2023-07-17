@@ -3,13 +3,13 @@
   align-items: center;
   justify-content: center;
   align-content: center;
-  flex-direction: column;
+  flex-direction: row;
   padding-top: 50px;
-  width: 100%;
+  //width: 100%;
   .content_pictures {
     column-count: 3;
   }
-  .sppiner{
+  .sppiner {
     width: 100%;
     display: flex;
     align-items: center;

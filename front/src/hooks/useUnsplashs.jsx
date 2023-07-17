@@ -17,7 +17,11 @@ export const useUnsplashs = () => {
       });
   }, []);
 
+  const updateList = (newList) => {
+    setunsplash(newList);
+  };
+
   return {
-    unsplash, isLoading, setisLoading, setunsplash
+    unsplash, isLoading, updateList, setunsplash
   };
 };

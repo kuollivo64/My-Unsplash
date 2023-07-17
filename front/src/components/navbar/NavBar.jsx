@@ -3,15 +3,14 @@ import logo_img from "./../../assets/my_unsplash_logo.svg";
 import search_icon from "./../../assets/search_icon.svg";
 import { ModalComponent } from "../modal/ModalComponent";
 import { UnsPlashForm } from "../../form/UnsPlashForm/UnsPlashForm";
-import { searchUnsplash } from "../../helpers/UnsPlashRest";
+import { getUnsplash, searchUnsplash } from "../../helpers/UnsPlashRest";
 import { ListPictures } from "../list_pictures/ListPictures";
-import { useUnsplashs } from "../../hooks/useUnsplashs";
 import "./NavBar.scss";
+import { useUnsplashs } from "../../hooks/useUnsplashs";
 export const NavBar = () => {
-  const { isLoading, unsplash } = useUnsplashs();
+  const { isLoading, unsplash, updateList } = useUnsplashs();
   const [isActive, setisActive] = useState(false);
   const [search, setsearch] = useState("");
-  const [unsplash_list, setUnsplash] = useState([]);
   const onChange = (event) => {
     setsearch(event.target.value);
   };
@@ -23,11 +22,11 @@ export const NavBar = () => {
   };
   const listUnsplash = async (value) => {
     const data = await searchUnsplash(value);
-    setUnsplash(data);
+    updateList(data);
   };
   useEffect(() => {
     if (search.length == 0) {
-      setUnsplash(unsplash);
+      getUnsplash().then((r) => updateList(r));
     } else {
       listUnsplash(search);
     }
@@ -59,9 +58,9 @@ export const NavBar = () => {
           Add a photo
         </button>
       </div>
-      <ListPictures unsplash={unsplash_list} isLoading={isLoading} />
+      <ListPictures unsplash={unsplash} isLoading={isLoading} updateList={updateList}/>
       <ModalComponent active={isActive} onClose={onClose}>
-        <UnsPlashForm onClose={onClose} />
+        <UnsPlashForm onClose={onClose} unsplash={unsplash} updateList={updateList}/>
       </ModalComponent>
     </>
   );

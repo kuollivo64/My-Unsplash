@@ -1,7 +1,6 @@
 import { svc_unsplash } from "../api/svc-unsplash"
 
 export const postUnsplash = async ( dataForm ) => {
-    console.log(dataForm);
     const res = await svc_unsplash.post('unsplash', dataForm);
     return res.data;
 }

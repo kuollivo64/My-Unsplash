@@ -6,7 +6,7 @@ const { Op } = require("sequelize");
 //GET CONTROLLER Unsplash    
 const getUnsplash = async (req, res = response) => {
     try {
-        const unsplash = await Unsplash.findAll({ where: { isactiveunsplash: true } });
+        const unsplash = await Unsplash.findAll({ where: { isactiveunsplash: true }, order:[ ["cod_unsplash", "DESC"] ] });
         //{ where: { #logica } }
         if (!unsplash) {
             return res.status(400).json({
