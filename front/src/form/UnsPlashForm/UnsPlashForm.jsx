@@ -6,7 +6,7 @@ import "./UnsPlashForm.scss";
 export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
   const [formData, setformData] = useState({
     title: "",
-    imageURL: "",
+    imageurl: "",
   });
 
   const handleChange = (e) => {
@@ -20,7 +20,7 @@ export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
     e.preventDefault();
     const data = {
       ...formData,
-      cod_unsplash: unsplash.length + 2,
+      cod_unsplash: unsplash.length + 5,
       active: true,
       isactiveunsplash: true,
     };
@@ -29,7 +29,7 @@ export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
         toast.success("Successfully add unsplash!");
       })
       .catch((error) => {
-        toast.error(error.message);
+        toast.error(error.message.data.msg);
       });
 
     const newData = await getUnsplash();
@@ -37,7 +37,7 @@ export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
 
     setformData({
       title: "",
-      imageURL: "",
+      imageurl: "",
     });
     onClose();
   };
@@ -60,9 +60,9 @@ export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
         <label htmlFor="username">Photo URL:</label>
         <input
           type="text"
-          id="imageURL"
-          name="imageURL"
-          value={formData.imageURL}
+          id="imageurl"
+          name="imageurl"
+          value={formData.imageurl}
           required
           placeholder="https://images.unsplash.com/photo-1584395630827-860eee694d7b?ixlib=r..."
           onChange={handleChange}

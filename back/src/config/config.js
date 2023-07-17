@@ -1,5 +1,6 @@
 
-const { Sequelize } = require('sequelize')
+const { Pool } = require('pg');
+//const { Sequelize } = require('sequelize')//
 require('dotenv').config();
 
 // const sequelize = new Sequelize(
@@ -13,20 +14,28 @@ require('dotenv').config();
 //         logging: false
 //     }
 // );
-const sequelize = new Sequelize(process.env.POSTGRES_URL, {
-    dialect: process.env.DATABASE_DIALECT,
-    logging: false,
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false // Asegúrate de que esta opción sea segura para tu entorno
-        }
+
+// const sequelize = new Sequelize(process.env.POSTGRES_URL, {
+//     dialect: process.env.DATABASE_DIALECT,
+//     logging: false,
+//     dialectOptions: {
+//         ssl: {
+//             require: true,
+//             rejectUnauthorized: false // Asegúrate de que esta opción sea segura para tu entorno
+//         }
+//     }
+// })
+
+const sequelize = new Pool({
+    connectionString: process.env.POSTGRES_URL,
+    ssl: {
+        rejectUnauthorized: false
     }
 })
 
 const dbConnection = async () => {
     try {
-        await sequelize.authenticate()
+        await sequelize.connect();
         console.log('DB-ONLINE');
     } catch (error) {
         console.log(error);

@@ -7,12 +7,12 @@ export const postUnsplash = async ( dataForm ) => {
 
 export const getUnsplash = async () => {
     const res = await svc_unsplash.get('unsplash');
-    return res.data.unsplash
+    return res.data
 }
 
 export const searchUnsplash = async ( title ) => {
     const res = await svc_unsplash.get(`unsplash/search?title=${title}`);
-    return res.data.unsplash
+    return res.data
 }
 
 export const deleteUnsplash = async (cod_unsplash) => {
