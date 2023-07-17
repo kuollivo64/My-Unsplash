@@ -1,7 +1,7 @@
 
 const express = require("express");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const { corsNode } = require('./middlewars/cors')
 
