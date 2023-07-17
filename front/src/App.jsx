@@ -1,6 +1,7 @@
 import "./App.scss";
 import { ListPictures } from "./components/list_pictures/ListPictures";
 import { NavBar } from "./components/navbar/NavBar";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <main>
         <ListPictures />
       </main>
+      <Toaster />
     </div>
   );
 }

@@ -1,0 +1,36 @@
+.modal_content {
+  z-index: 9999999;
+  position: absolute;
+  background-color: rgba($color: #504d4d, $alpha: 0.5);
+  height: inherit;
+  width: 105%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  .modal_card {
+    border-radius: 12px;
+    background-color: #ffffff;
+    height: auto;
+    padding: 25px;
+    .header_flex{
+        display: flex;
+        justify-content: space-between;
+        .modal_title {
+          color: #333;
+          font-family: Poppins;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        .iconClose{
+            background-color: transparent;
+            border-style: none;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+  }
+}
