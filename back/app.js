@@ -1,13 +1,13 @@
 
 const express = require("express");
 
-const { corsNode } = require('./middlewars/cors')
+const { corsNode } = require('./src/middlewars/cors')
 
 require("dotenv").config();
 
 const port = process.env.PORT || 4005;
 
-const { dbConnection } = require("./config/config");
+const { dbConnection } = require("./src/config/config");
 
 dbConnection();
 
@@ -24,7 +24,7 @@ app.use(express.json());
 
 //PATHS FOR MODELS [ GET, POST, PUT, DELETE ]
 
-app.use('/back/unsplash', require('./routes/UnsplashRoute'))
+app.use('/back/unsplash', require('./src/routes/UnsplashRoute'))
 
 //LISTEN DE API REST IN PORT 
 app.listen(port, () => {
