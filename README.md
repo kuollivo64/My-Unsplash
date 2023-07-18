@@ -8,7 +8,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://my-unsplash-client-tau.vercel.app/">
       Demo
     </a>
     <span> | </span>
@@ -37,14 +37,9 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](https://res.cloudinary.com/createout/image/upload/v1689642850/express_image_uploader/xbfd5254toojdy8jn2g5.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+Well below I present you my solution for my unsplash in which I worked with ReactJs, ExpressJs and PostgreSQL which is deployed in Vercel (Note: Vercel is having a free trial to upload your database a small limitation at development level is that it does not let you deploy the api for example with an ORM example Sequelize in my case I had that problem and searching I saw that the convenient thing is to Pg the package that directly connects your API with the DB in postgres. API with the DB in postgresql if you manage this database I recommend you to take into account this situation of course you can also use another platform to deploy your app XD) besides this small experience I saw more than all the type of art I do not know how to say it but it is called MANSORY which is very interesting in my opinion you can use packages already in your database. interesting in my opinion you can use packages already developed by third parties to generate this style but in my case I wanted to do it natively is not so good but it fulfills its function XD before this I also created my own modal windows to reuse them so I also improved in trying to do less code at the design level using Flexbox for all the layout of the app in my opinion I think what we should see is to do less code but equally more is not better or less either but as I see it is better less code but this was my experience with this app.
 
 ### Built With
 
@@ -56,8 +51,8 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 - [React-Toast-Hot](https://react-hot-toast.com/)
 - [Express](https://expressjs.com/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [Sequelize](https://sequelize.org/)
-
+- [Pg-PostgreSQL](https://www.npmjs.com/package/pg)
+- [Vercel](https://vercel.com/)
 ## Features
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
@@ -72,14 +67,31 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/kuollivo64/My-Unsplash.git
+```
+[Backend]()
+```
+# Backend en ExpresJS
+$ cd back
 
 # Install dependencies
 $ npm install
 
 # Run the app
-$ npm start
+$ npm run dev
 ```
+[Frontend]()
+```
+# Frontend en ReactJS
+$ cd front
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm run dev
+```
+
 
 ## Acknowledgements
 
