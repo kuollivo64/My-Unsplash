@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import { deleteUnsplash, getUnsplash } from "../../helpers/UnsPlashRest";
 export const CardPicture = ({ data, updateList }) => {
   const { title, imageurl, cod_unsplash } = data;
-  console.log(data);
   const on_deleteUnsplash = async (cod_unsplash) => {
     await deleteUnsplash(cod_unsplash)
       .then((r) => {

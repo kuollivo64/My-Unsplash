@@ -6,7 +6,7 @@ import "./UnsPlashForm.scss";
 export const UnsPlashForm = ({ onClose, updateList }) => {
   const [formData, setformData] = useState({
     title: "",
-    imageurl: "",
+    imageURL: "",
   });
 
   const handleChange = (e) => {
@@ -35,7 +35,7 @@ export const UnsPlashForm = ({ onClose, updateList }) => {
 
     setformData({
       title: "",
-      imageurl: "",
+      imageURL: "",
     });
     onClose();
   };
@@ -58,9 +58,9 @@ export const UnsPlashForm = ({ onClose, updateList }) => {
         <label htmlFor="username">Photo URL:</label>
         <input
           type="text"
-          id="imageurl"
-          name="imageurl"
-          value={formData.imageurl}
+          id="imageURL"
+          name="imageURL"
+          value={formData.imageURL}
           required
           placeholder="https://images.unsplash.com/photo-1584395630827-860eee694d7b?ixlib=r..."
           onChange={handleChange}

@@ -58,7 +58,7 @@ const searchUnsplash = async (req, res = response) => {
 
 //POST CONTROLLER Unsplash
 const postUnsplash = async (req, res = response) => {
-    const { title, imageurl, isactiveunsplash } = req.body;
+    const { title, imageURL, isactiveunsplash } = req.body;
     try {
         //VALID cod_unsplash EXIST 
         // const queryCheck = 'SELECT * FROM unsplash WHERE cod_unsplash = $1;';
@@ -72,7 +72,7 @@ const postUnsplash = async (req, res = response) => {
         // }
         //CREATE Unsplash 
         const queryCreate = 'INSERT INTO unsplash_v2 (title, imageURL, isactiveunsplash) VALUES ($1, $2, $3);';
-        const values = [cod_unsplash, title, imageurl, isactiveunsplash];
+        const values = [cod_unsplash, title, imageURL, isactiveunsplash];
         await sequelize.query(queryCreate, values);
 
         res.status(201).json({
