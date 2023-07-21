@@ -3,7 +3,7 @@ import { getUnsplash, postUnsplash } from "../../helpers/UnsPlashRest";
 import toast from "react-hot-toast";
 import "./UnsPlashForm.scss";
 
-export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
+export const UnsPlashForm = ({ onClose, updateList }) => {
   const [formData, setformData] = useState({
     title: "",
     imageurl: "",
@@ -20,8 +20,6 @@ export const UnsPlashForm = ({ onClose, updateList, unsplash }) => {
     e.preventDefault();
     const data = {
       ...formData,
-      cod_unsplash: unsplash.length + 5,
-      active: true,
       isactiveunsplash: true,
     };
     await postUnsplash(data)

@@ -60,7 +60,7 @@ export const NavBar = () => {
       </div>
       <ListPictures unsplash={unsplash} isLoading={isLoading} updateList={updateList}/>
       <ModalComponent active={isActive} onClose={onClose}>
-        <UnsPlashForm onClose={onClose} unsplash={unsplash} updateList={updateList}/>
+        <UnsPlashForm onClose={onClose} updateList={updateList}/>
       </ModalComponent>
     </>
   );
