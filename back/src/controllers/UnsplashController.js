@@ -7,22 +7,22 @@ require('dotenv').config();
 
 //GET CONTROLLER Unsplash    
 const getUnsplash = async (req, res = response) => {
-    try {
-        //const unsplash = await Unsplash.findAll({ where: { isactiveunsplash: true }, order:[ ["cod_unsplash", "DESC"] ] });
-        const unsplash = await sequelize.query(`SELECT cod_unsplash, title, imageURL, isactiveunsplash FROM ${process.env.DATABASE_SCHEMA}.unsplash_v2 WHERE isactiveunsplash=true ORDER BY cod_unsplash DESC;`)
-        if (!unsplash.rows) {
-            return res.status(400).json({
-                ok: false,
-                msg: "No found unsplash",
-            });
-        }
-        res.status(201).json(unsplash.rows);
-    } catch (error) {
-        res.status(500).json({
+    //const unsplash = await Unsplash.findAll({ where: { isactiveunsplash: true }, order:[ ["cod_unsplash", "DESC"] ] });
+    const unsplash = await sequelize.query(`SELECT cod_unsplash, title, imageURL, isactiveunsplash FROM ${process.env.DATABASE_SCHEMA}.unsplash_v2 WHERE isactiveunsplash=true ORDER BY cod_unsplash DESC;`)
+    if (!unsplash.rows) {
+        return res.status(400).json({
             ok: false,
-            msg: "Error exception call the administration!!!",
+            msg: "No found unsplash",
         });
     }
+    res.status(201).json(unsplash.rows);
+    //try {
+    //} catch (error) {
+    //    res.status(500).json({
+    //        ok: false,
+    //        msg: "Error exception call the administration!!!",
+    //    });
+    //}
 }
 
 const searchUnsplash = async (req, res = response) => {
