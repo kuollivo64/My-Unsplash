@@ -72,7 +72,7 @@ const postUnsplash = async (req, res = response) => {
         // }
         //CREATE Unsplash 
         const queryCreate = 'INSERT INTO unsplash_v2 (title, imageURL, isactiveunsplash) VALUES ($1, $2, $3);';
-        const values = [cod_unsplash, title, imageURL, isactiveunsplash];
+        const values = [title, imageURL, isactiveunsplash];
         await sequelize.query(queryCreate, values);
 
         res.status(201).json({
