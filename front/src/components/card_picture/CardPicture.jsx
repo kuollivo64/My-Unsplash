@@ -3,7 +3,8 @@ import "./CardPicture.scss";
 import toast from "react-hot-toast";
 import { deleteUnsplash, getUnsplash } from "../../helpers/UnsPlashRest";
 export const CardPicture = ({ data, updateList }) => {
-  const { title, imageURL, cod_unsplash } = data;
+  const { title, imageurl, cod_unsplash } = data;
+  console.log(data);
   const on_deleteUnsplash = async (cod_unsplash) => {
     await deleteUnsplash(cod_unsplash)
       .then((r) => {
@@ -17,7 +18,7 @@ export const CardPicture = ({ data, updateList }) => {
   };
   return (
     <div className="content_picture_card">
-      <img src={imageURL} alt="" srcSet=""/>
+      <img src={imageurl} alt="" srcSet=""/>
       <div className="overlay">
         <button
           className="button_hover"
