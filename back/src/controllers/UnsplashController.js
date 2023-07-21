@@ -9,7 +9,7 @@ require('dotenv').config();
 const getUnsplash = async (req, res = response) => {
     try {
         //const unsplash = await Unsplash.findAll({ where: { isactiveunsplash: true }, order:[ ["cod_unsplash", "DESC"] ] });
-        const unsplash = await sequelize.query(`SELECT cod_unsplash, title, "imageURL", isactiveunsplash FROM ${process.env.DATABASE_SCHEMA}.unsplash_v2 WHERE isactiveunsplash=true ORDER BY cod_unsplash DESC;`)
+        const unsplash = await sequelize.query(`SELECT cod_unsplash, title, imageURL, isactiveunsplash FROM ${process.env.DATABASE_SCHEMA}.unsplash_v2 WHERE isactiveunsplash=true ORDER BY cod_unsplash DESC;`)
         if (!unsplash.rows) {
             return res.status(400).json({
                 ok: false,
@@ -34,7 +34,7 @@ const searchUnsplash = async (req, res = response) => {
         }
         //const unsplash = await Unsplash.findAll({ where: filters })
         const query = `
-            SELECT cod_unsplash, title, "imageURL", isactiveunsplash
+            SELECT cod_unsplash, title, imageURL, isactiveunsplash
             FROM ${process.env.DATABASE_SCHEMA}.unsplash_v2
             WHERE isactiveunsplash = true
                 AND title ILIKE $1
@@ -71,7 +71,7 @@ const postUnsplash = async (req, res = response) => {
         //     });
         // }
         //CREATE Unsplash 
-        const queryCreate = 'INSERT INTO unsplash_v2 (title, "imageURL", isactiveunsplash) VALUES ($1, $2, $3);';
+        const queryCreate = 'INSERT INTO unsplash_v2 (title, imageURL, isactiveunsplash) VALUES ($1, $2, $3);';
         const values = [cod_unsplash, title, imageurl, isactiveunsplash];
         await sequelize.query(queryCreate, values);
 
